@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            background: #020617;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        /* MAIN SECTION */
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+        }
+
+        .left {
+            width: 45%;
+        }
+
+        .right {
+            width: 45%;
+            text-align: center;
+        }
+
+        /* FORM */
+        .form-box {
+            background: #020617;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #06b6d4;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0891b2;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* IMAGE */
+        .right img {
+            width: 80%;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        /* INFO SECTION */
+        .info {
+            padding: 50px;
+            background: #020617;
+        }
+
+        .info h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    Fraud Detection Data Handling System
+</header>
+
+<div class="main">
+
+    <!-- LEFT SIDE (FORM) -->
+    <div class="left">
+        <div class="form-box">
+            <h2>Analyze Transaction</h2>
+
+            <form action="/check" method="post">
+                <input type="text" name="user" placeholder="User ID" required>
+                <input type="number" name="amount" placeholder="Amount" required>
+                <input type="text" name="location" placeholder="Location" required>
+
+                <button type="submit">Check Fraud</button>
+            </form>
+
+            {% if result %}
+                <div class="result">{{ result }}</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE (SKETCH IMAGE) -->
+    <div class="right">
+        <img src="https://undraw.co/api/illustrations/secure_server.svg" alt="Security Illustration">
+    </div>
+
+</div>
+
+<!-- INFO SECTION -->
+<div class="info">
+    <h2>About Fraud Detection</h2>
+
+    <p>
+        Fraud detection systems are essential in modern financial systems to identify suspicious
+        activities and prevent unauthorized transactions. This project demonstrates how Data Structures
+        and Algorithms can be applied to detect fraud efficiently.
+    </p>
+
+    <br>
+
+    <p>
+        The system uses Linked Lists for dynamic storage, Queue for processing transactions in FIFO order,
+        Hashing for fast lookup, and Stack for storing flagged transactions. These techniques ensure
+        optimized performance and scalability.
+    </p>
+
+</div>
+
+</body>
+</html>
